@@ -3,17 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>peppe</title>
+  <title>代理模式 | peppe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="peppe">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="概念
+为另一个对象提供一个替身以控制对该对象的访问
+作用
+远程代理控制访问远程对象
+保护代理控制对资源的访问权限
+虚拟代理控制访问创建开销大的对象例子代理对象和被代理对象实现同一接口,且代理对象要持有被代理对象的引用
+
+
+公共接口123public interface ProxyInterface &amp;#123;	 void visit ();&amp;#125;
+代理12345678910111213pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代理模式">
+<meta property="og:url" content="http://yoursite.com/2015/07/14/代理模式/index.html">
 <meta property="og:site_name" content="peppe">
-<meta property="og:description">
+<meta property="og:description" content="概念
+为另一个对象提供一个替身以控制对该对象的访问
+作用
+远程代理控制访问远程对象
+保护代理控制对资源的访问权限
+虚拟代理控制访问创建开销大的对象例子代理对象和被代理对象实现同一接口,且代理对象要持有被代理对象的引用
+
+
+公共接口123public interface ProxyInterface &amp;#123;	 void visit ();&amp;#125;
+代理12345678910111213pu">
+<meta property="og:updated_time" content="2015-07-14T13:39:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="peppe">
-<meta name="twitter:description">
+<meta name="twitter:title" content="代理模式">
+<meta name="twitter:description" content="概念
+为另一个对象提供一个替身以控制对该对象的访问
+作用
+远程代理控制访问远程对象
+保护代理控制对资源的访问权限
+虚拟代理控制访问创建开销大的对象例子代理对象和被代理对象实现同一接口,且代理对象要持有被代理对象的引用
+
+
+公共接口123public interface ProxyInterface &amp;#123;	 void visit ();&amp;#125;
+代理12345678910111213pu">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -172,9 +200,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-代理模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-代理模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/07/14/代理模式/" class="article-date">
@@ -190,12 +216,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/14/代理模式/">代理模式</a>
+    <h1 class="article-title" itemprop="name">
+      代理模式
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理模式/">代理模式</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -223,159 +264,61 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理模式/">代理模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/13/观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">观察者模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-  
-    <article id="post-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/13/观察者模式/" class="article-date">
-  	<time datetime="2015-07-13T12:21:10.000Z" itemprop="datePublished">2015-07-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/13/观察者模式/">观察者模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>java 提供Observable 抽象类和observer接口为开发者实现观察者模式提供便利，下面是一个例子。</p>
-</blockquote>
-<h4 id="观察者">观察者</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">myobserver</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">myobserver</span><span class="params">(Observable observable)</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">	   <span class="comment">//观察者将自己注册到被观察者</span></span><br><span class="line">	   observable.addObserver(<span class="keyword">this</span>);	</span><br><span class="line">	   id=count++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"观察者"</span>+id+<span class="string">"观察到的数据:"</span>+((myobservable) o).getVar());</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="被观察者">被观察者</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">myobservable</span> <span class="title">extends</span> <span class="title">Observable</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">var</span>;<span class="comment">//观察者需要观察的数据</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getVar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">var</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setVar</span>(<span class="params"><span class="keyword">int</span> <span class="keyword">var</span></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.<span class="keyword">var</span> = <span class="keyword">var</span>;</span><br><span class="line">		<span class="keyword">this</span>.setChanged();<span class="comment">//标记被观察者状态已改变</span></span><br><span class="line">		<span class="keyword">this</span>.notifyObservers();<span class="comment">//内部会调用observer的update()方法</span></span><br><span class="line">	&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[]  args</span>) </span><br><span class="line">	</span>&#123;</span><br><span class="line">		myobservable observable=<span class="keyword">new</span> myobservable();</span><br><span class="line">		<span class="keyword">new</span> myobserver(observable);</span><br><span class="line">		<span class="keyword">new</span> myobserver(observable);</span><br><span class="line">		<span class="keyword">new</span> myobserver(observable);</span><br><span class="line">		observable.setVar(<span class="number">2</span>);</span><br><span class="line">		observable.setVar(-<span class="number">9</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="结果">结果</h4><blockquote>
-<p>观察者2观察到的数据:2<br>观察者1观察到的数据:2<br>观察者0观察到的数据:2<br>观察者2观察到的数据:-9<br>观察者1观察到的数据:-9<br>观察者0观察到的数据:-9</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/观察者模式/">观察者模式</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="代理模式" data-title="代理模式" data-url="http://yoursite.com/2015/07/14/代理模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"peppe"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-    <article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/07/hello-hexo/" class="article-date">
-  	<time datetime="2015-06-06T16:00:00.000Z" itemprop="datePublished">2015-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/07/hello-hexo/">hello hexo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="折腾">折腾</h2><p>玩github有一段时间了，看见有人用github pages搭博客,也想在上面搭建一个。折腾一天，才在github上搭建起自己的博客。<br>搭完环境，想写个demo，学习了下Markdown。可以在<a href="http://www.jianshu.com/" target="_blank" rel="external">简书</a>在线练习，另外CSDN也支持Markdown语言。</p>
-<h2 id="总结一下">总结一下</h2><ul>
-<li>Hexo:一个基于NodeJS，快速、简洁且高效的博客框架,使用 Markdown（或其他渲染引擎）解析文章，利用自选的靓丽的<a href="http://hexo.io/themes/" target="_blank" rel="external">主题</a>生成静态网页。</li>
-<li>Markdown:一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML).</li>
-<li>插件：Hexo提供了丰富的<a href="http://hexo.io/plugins/" target="_blank" rel="external">插件</a>，根据需求安装,推荐两个插件<a href="https://github.com/Yikun/hexo-generator-douban" target="_blank" rel="external">hexo-generator-douban</a>抓取豆瓣书籍及评论,<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a>将文章推送到<br>github</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS/">NodeJS</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
