@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java动态代理 | peppe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java有两种动态代理，JDK动态代理和CGLib动态代理，二者的区别如下
+
+代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）
+实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java动态代理">
+<meta property="og:url" content="http://yoursite.com/2015/07/17/java动态代理/index.html">
+<meta property="og:site_name" content="peppe">
+<meta property="og:description" content="java有两种动态代理，JDK动态代理和CGLib动态代理，二者的区别如下
+
+代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）
+实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib">
+<meta property="og:updated_time" content="2015-07-17T11:31:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java动态代理">
+<meta name="twitter:description" content="java有两种动态代理，JDK动态代理和CGLib动态代理，二者的区别如下
+
+代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）
+实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib">
+  
+    <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="/img/author.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">LPY</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">文章</a></li>
+				        
+							<li><a href="/categories/life">随笔</a></li>
+				        
+							<li><a href="/douban">读书</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/lpyjsj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2394940353/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/xiao-mu-14" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/Peppe/" title="douban">douban</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">学生党一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">LPY</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/author.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">LPY</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">文章</a></li>
+		        
+					<li><a href="/categories/life">随笔</a></li>
+		        
+					<li><a href="/douban">读书</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lpyjsj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2394940353/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/xiao-mu-14" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/Peppe/" title="douban">douban</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-java动态代理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/17/java动态代理/" class="article-date">
+  	<time datetime="2015-07-17T11:31:40.000Z" itemprop="datePublished">2015-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java动态代理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGLib/">CGLib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDK动态代理/">JDK动态代理</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/JAVA基础/">JAVA基础</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java有两种动态代理，JDK动态代理和CGLib动态代理，二者的区别如下</p>
+<ul>
+<li>代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）</li>
+<li>实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib代理依赖CGLib.jar和asm.jar)</li>
+<li>性能：CGGlib创建的代理对象要比JDK的性能高很多，但是创建时所花费的时间却比JDK动态代理要多，CGLib适合单例等生命周期比较长的对象。</li>
+</ul>
+<h2 id="例子">例子</h2><blockquote>
+<p>接口和被代理类</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">subjectInterface</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTask</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> <span class="keyword">implements</span> <span class="title">subjectInterface</span> </span>&#123;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"执行任务"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>JDK代理</p>
+</blockquote>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line">public class <span class="type">JDKDynamicProxy</span> implements <span class="type">InvocationHandler</span> &#123;</span><br><span class="line">	private <span class="type">Object</span> target;// 被代理对象</span><br><span class="line"></span><br><span class="line">	// 返回代理对象</span><br><span class="line">	public <span class="type">Object</span> bindTarget(<span class="type">Object</span> target) &#123;</span><br><span class="line">		this.target = target;</span><br><span class="line">		<span class="keyword">return</span> <span class="type">Proxy</span>.newProxyInstance(target.getClass().getClassLoader(),</span><br><span class="line">				target.getClass().getInterfaces(), this);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@<span class="type">Override</span></span><br><span class="line">	public <span class="type">Object</span> invoke(<span class="type">Object</span> proxy, <span class="type">Method</span> <span class="keyword">method</span>, <span class="type">Object</span>[] args)</span><br><span class="line">			throws <span class="type">Throwable</span> &#123;</span><br><span class="line">		// <span class="type">TODO</span> <span class="type">Auto</span>-generated <span class="keyword">method</span> stub</span><br><span class="line">		<span class="type">Object</span> <span class="literal">result</span> = null;</span><br><span class="line"></span><br><span class="line">		<span class="literal">result</span> = <span class="keyword">method</span>.invoke(target, args);// 实现代理</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>CGLib 代理</p>
+</blockquote>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.<span class="type">Method</span>;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.<span class="type">Enhancer</span>;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.<span class="type">MethodInterceptor</span>;</span><br><span class="line"><span class="keyword">import</span> net.sf.cglib.proxy.<span class="type">MethodProxy</span>;</span><br><span class="line"></span><br><span class="line">public class <span class="type">CGlibProxy</span> implements <span class="type">MethodInterceptor</span> &#123;</span><br><span class="line"></span><br><span class="line">	private <span class="type">Object</span> target;</span><br><span class="line"></span><br><span class="line">	// 创建代理对象</span><br><span class="line">	public <span class="type">Object</span> bindTarger(<span class="type">Object</span> target) &#123;</span><br><span class="line">		this.target = target;// 设置被代理对象</span><br><span class="line">		<span class="type">Enhancer</span> enhancer = new <span class="type">Enhancer</span>();</span><br><span class="line">		enhancer.setSuperclass(this.target.getClass());// 设置要创建的子类的父类</span><br><span class="line">		enhancer.setCallback(this);// 回调方法</span><br><span class="line">		<span class="keyword">return</span> enhancer.create();// 通过字节码技术动态创建子类</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@<span class="type">Override</span></span><br><span class="line">	// 拦截父类方法的调用，可在这里织入横切逻辑</span><br><span class="line">	public <span class="type">Object</span> intercept(<span class="type">Object</span> obj, <span class="type">Method</span> <span class="keyword">method</span>, <span class="type">Object</span>[] args,</span><br><span class="line">			<span class="type">MethodProxy</span> proxy) throws <span class="type">Throwable</span> &#123;</span><br><span class="line">		// <span class="type">TODO</span> <span class="type">Auto</span>-generated <span class="keyword">method</span> stub</span><br><span class="line">		<span class="type">Object</span> <span class="literal">result</span> = proxy.invokeSuper(obj, args);// 调用父类方法</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试</p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">public</span> class ProxyTest &#123;</span><br><span class="line">	public static void main(<span class="keyword">String[] </span>args) &#123;</span><br><span class="line">		<span class="keyword">Subject </span><span class="keyword">subject </span>= new <span class="keyword">Subject();</span><br><span class="line"></span>		JDKDynamicProxy proxy = new JDKDynamicProxy()<span class="comment">;</span></span><br><span class="line">		<span class="keyword">subjectInterface </span><span class="literal">s1</span> = (<span class="keyword">subjectInterface) </span>proxy.<span class="keyword">bindTarget(subject);</span><br><span class="line"></span>		System.out.println(<span class="string">"使用JDK动态代理"</span>)<span class="comment">;</span></span><br><span class="line">		<span class="literal">s1</span>.doTask()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">		CGlibProxy cglibproxy = new CGlibProxy()<span class="comment">;</span></span><br><span class="line">		<span class="keyword">Subject </span><span class="literal">s2</span> = (<span class="keyword">Subject) </span>cglibproxy.<span class="keyword">bindTarger(subject);</span><br><span class="line"></span>		System.out.println(<span class="string">"使用CGLib代理"</span>)<span class="comment">;</span></span><br><span class="line">		<span class="literal">s2</span>.doTask()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>结果</p>
+</blockquote>
+<p>使用JDK动态代理<br>执行任务<br>使用CGLib代理<br>执行任务</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/17/java-多线程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java 多线程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="java动态代理" data-title="java动态代理" data-url="http://yoursite.com/2015/07/17/java动态代理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"peppe"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 LPY
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
