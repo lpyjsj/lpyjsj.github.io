@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JAVA Fork/Join 框架 | peppe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JAVA Fork/Join 框架是一个任务并行计算框架，将大任务划分为小任务，分而治之
+核心操作
+
+fork：将大任务划分为小任务
+join： 任务等待其创建的任务的结束
+
+核心类
+
+ForkJoinPool：ForkJoinTask需要通过ForkJoinPool来执行，实现ExecutorService接口和work-stealing算法，管理工作线程和提供关于任务的状态和它们执行的信息
+F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA Fork/Join 框架">
+<meta property="og:url" content="http://yoursite.com/2015/08/07/JAVA-Fork-Join-框架/index.html">
+<meta property="og:site_name" content="peppe">
+<meta property="og:description" content="JAVA Fork/Join 框架是一个任务并行计算框架，将大任务划分为小任务，分而治之
+核心操作
+
+fork：将大任务划分为小任务
+join： 任务等待其创建的任务的结束
+
+核心类
+
+ForkJoinPool：ForkJoinTask需要通过ForkJoinPool来执行，实现ExecutorService接口和work-stealing算法，管理工作线程和提供关于任务的状态和它们执行的信息
+F">
+<meta property="og:updated_time" content="2015-08-07T03:03:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA Fork/Join 框架">
+<meta name="twitter:description" content="JAVA Fork/Join 框架是一个任务并行计算框架，将大任务划分为小任务，分而治之
+核心操作
+
+fork：将大任务划分为小任务
+join： 任务等待其创建的任务的结束
+
+核心类
+
+ForkJoinPool：ForkJoinTask需要通过ForkJoinPool来执行，实现ExecutorService接口和work-stealing算法，管理工作线程和提供关于任务的状态和它们执行的信息
+F">
+  
+    <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img lazy-src="/img/author.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">LPY</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">文章</a></li>
+				        
+							<li><a href="/categories/life">随笔</a></li>
+				        
+							<li><a href="/douban">读书</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/lpyjsj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2394940353/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/xiao-mu-14" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/Peppe/" title="douban">douban</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">学生党一枚</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">LPY</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/author.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">LPY</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">文章</a></li>
+		        
+					<li><a href="/categories/life">随笔</a></li>
+		        
+					<li><a href="/douban">读书</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lpyjsj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2394940353/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/xiao-mu-14" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/Peppe/" title="douban">douban</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JAVA-Fork-Join-框架" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/07/JAVA-Fork-Join-框架/" class="article-date">
+  	<time datetime="2015-08-07T03:03:27.000Z" itemprop="datePublished">2015-08-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA Fork/Join 框架
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fork-Join/">Fork/Join</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/JAVA并发/">JAVA并发</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JAVA Fork/Join 框架是一个任务并行计算框架，将大任务划分为小任务，分而治之</p>
+<p>核心操作</p>
+<ul>
+<li>fork：将大任务划分为小任务</li>
+<li>join： 任务等待其创建的任务的结束</li>
+</ul>
+<p>核心类</p>
+<ul>
+<li>ForkJoinPool：ForkJoinTask需要通过ForkJoinPool来执行，实现ExecutorService接口和work-stealing算法，管理工作线程和提供关于任务的状态和它们执行的信息</li>
+<li>ForkJoinTask：提供fork、join操作，它有两个子类，RecursiveAction没有返回结果的任务和RecursiveTask 有返回结果的任务</li>
+</ul>
+<p>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ForkJoinPool;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Future;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.RecursiveTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaForkJoin</span> <span class="keyword">extends</span> <span class="title">RecursiveTask</span>&lt;<span class="title">Integer</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> n;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">JavaForkJoin</span><span class="params">(<span class="keyword">int</span> n)</span></span><br><span class="line">	</span>&#123;<span class="keyword">this</span>.n=n;&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="comment">//模拟斐波那契数列</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> Integer <span class="title">compute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span>(n&lt;=<span class="number">1</span>)</span><br><span class="line">			 sum=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			JavaForkJoin f1=<span class="keyword">new</span> JavaForkJoin(n-<span class="number">1</span>);</span><br><span class="line">			f1.fork();</span><br><span class="line">			JavaForkJoin f2=<span class="keyword">new</span> JavaForkJoin(n-<span class="number">2</span>);</span><br><span class="line">			f2.fork();</span><br><span class="line">			sum=f1.join()+f2.join();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException, ExecutionException </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">		ForkJoinPool pool=<span class="keyword">new</span> ForkJoinPool();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> n=<span class="number">0</span>;n&lt;<span class="number">8</span>;n++)</span><br><span class="line">		&#123;	</span><br><span class="line">		  Future&lt;Integer&gt; result=pool.submit(<span class="keyword">new</span> JavaForkJoin(n));</span><br><span class="line">		  System.out.println(<span class="string">"Fibonacci("</span>+n+<span class="string">")="</span>+result.get());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果</p>
+<blockquote>
+<p>Fibonacci(0)=1<br>Fibonacci(1)=1<br>Fibonacci(2)=2<br>Fibonacci(3)=3<br>Fibonacci(4)=5<br>Fibonacci(5)=8<br>Fibonacci(6)=13<br>Fibonacci(7)=21</p>
+</blockquote>
+<p>参考链接</p>
+<ul>
+<li><a href="http://www.williamsang.com/archives/1724.html" target="_blank" rel="external">http://www.williamsang.com/archives/1724.html</a></li>
+<li><a href="http://ifeve.com/fork-join-1" target="_blank" rel="external">http://ifeve.com/fork-join-1</a></li>
+<li><a href="http://www.infoq.com/cn/articles/fork-join-introduction" target="_blank" rel="external">http://www.infoq.com/cn/articles/fork-join-introduction</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/18/java线程同步/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java线程同步</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA-Fork-Join-框架" data-title="JAVA Fork/Join 框架" data-url="http://yoursite.com/2015/08/07/JAVA-Fork-Join-框架/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"peppe"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 LPY
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>
