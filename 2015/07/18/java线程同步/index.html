@@ -7,29 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="同步的两种方式
 synchronized关键字同步
-可重入锁ReentrantLock同步
-
-下面的例子分别使用两种方式实现同步
-12345678910111213141516171819public class JavaSynchronize &amp;#123;	public int count = 0;	public void increment() &amp;#123;		synchronized (th">
+可重入锁ReentrantLock同步">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java线程同步">
 <meta property="og:url" content="http://yoursite.com/2015/07/18/java线程同步/index.html">
 <meta property="og:site_name" content="peppe">
 <meta property="og:description" content="同步的两种方式
 synchronized关键字同步
-可重入锁ReentrantLock同步
-
-下面的例子分别使用两种方式实现同步
-12345678910111213141516171819public class JavaSynchronize &amp;#123;	public int count = 0;	public void increment() &amp;#123;		synchronized (th">
+可重入锁ReentrantLock同步">
 <meta property="og:updated_time" content="2015-07-18T11:45:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java线程同步">
 <meta name="twitter:description" content="同步的两种方式
 synchronized关键字同步
-可重入锁ReentrantLock同步
-
-下面的例子分别使用两种方式实现同步
-12345678910111213141516171819public class JavaSynchronize &amp;#123;	public int count = 0;	public void increment() &amp;#123;		synchronized (th">
+可重入锁ReentrantLock同步">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -231,9 +222,9 @@ synchronized关键字同步
       
         <h3 id="同步的两种方式">同步的两种方式</h3><ol>
 <li>synchronized关键字同步</li>
-<li>可重入锁ReentrantLock同步</li>
+<li>可重入锁ReentrantLock同步<a id="more"></a>
+下面的例子分别使用两种方式实现同步</li>
 </ol>
-<p>下面的例子分别使用两种方式实现同步</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JavaSynchronize</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		synchronized (<span class="keyword">this</span>) &#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					increment();</span><br><span class="line">					System.<span class="keyword">out</span>.println(<span class="string">"count="</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.locks.Lock;</span><br><span class="line">import java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JavaLock</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> Lock <span class="keyword">lock</span> = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">lock</span>.<span class="keyword">lock</span>();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">lock</span>.unlock();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					increment();</span><br><span class="line">					System.<span class="keyword">out</span>.println(<span class="string">"count="</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="两种方式的差异">两种方式的差异</h3><ul>
