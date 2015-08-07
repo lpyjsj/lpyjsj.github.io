@@ -3,25 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>读书 | peppe</title>
+  <title>JAVA Semaphore | peppe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="轻量级Java EE企业应用实战2015-07-10 17:30:21作为SSH入门书籍还是可以的。Java编程思想 （第4版）2015-07-05 11:01:21比core java 有深度，知识点比较全面，部分内容难懂晦涩Head First 设计模式（中文版）2015-07-02 10:49:03花了十天的时间读完了，每个模式都由一个妙趣横生的例子引出，适合初学者作为入门书籍Effecti">
-<meta property="og:type" content="website">
-<meta property="og:title" content="读书">
-<meta property="og:url" content="http://yoursite.com/douban/index.html">
+  <meta name="description" content="Semaphore可以控同时访问资源的线程个数，通过 acquire() 获取一个访问资源许可，如果没有就等待，而 release() 释放一个资源许可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA Semaphore">
+<meta property="og:url" content="http://yoursite.com/2015/08/07/JAVA-Semaphore/index.html">
 <meta property="og:site_name" content="peppe">
-<meta property="og:description" content="轻量级Java EE企业应用实战2015-07-10 17:30:21作为SSH入门书籍还是可以的。Java编程思想 （第4版）2015-07-05 11:01:21比core java 有深度，知识点比较全面，部分内容难懂晦涩Head First 设计模式（中文版）2015-07-02 10:49:03花了十天的时间读完了，每个模式都由一个妙趣横生的例子引出，适合初学者作为入门书籍Effecti">
-<meta property="og:image" content="http://img4.douban.com/lpic/s6297466.jpg">
-<meta property="og:image" content="http://img3.douban.com/lpic/s27243455.jpg">
-<meta property="og:image" content="http://img4.douban.com/lpic/s2686916.jpg">
-<meta property="og:image" content="http://img3.douban.com/lpic/s3479802.jpg">
-<meta property="og:image" content="http://img4.douban.com/lpic/s1585569.jpg">
-<meta property="og:image" content="http://img4.douban.com/lpic/s26039949.jpg">
-<meta property="og:image" content="http://img4.douban.com/lpic/s7038106.jpg">
-<meta property="og:image" content="http://img3.douban.com/lpic/s7653652.jpg">
+<meta property="og:description" content="Semaphore可以控同时访问资源的线程个数，通过 acquire() 获取一个访问资源许可，如果没有就等待，而 release() 释放一个资源许可">
+<meta property="og:updated_time" content="2015-08-07T13:15:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读书">
-<meta name="twitter:description" content="轻量级Java EE企业应用实战2015-07-10 17:30:21作为SSH入门书籍还是可以的。Java编程思想 （第4版）2015-07-05 11:01:21比core java 有深度，知识点比较全面，部分内容难懂晦涩Head First 设计模式（中文版）2015-07-02 10:49:03花了十天的时间读完了，每个模式都由一个妙趣横生的例子引出，适合初学者作为入门书籍Effecti">
+<meta name="twitter:title" content="JAVA Semaphore">
+<meta name="twitter:description" content="Semaphore可以控同时访问资源的线程个数，通过 acquire() 获取一个访问资源许可，如果没有就等待，而 release() 释放一个资源许可">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -180,11 +173,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="undefined-douban" class="article article-type-undefined" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JAVA-Semaphore" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/douban/index.html" class="article-date">
-  	<time datetime="2015-08-07T13:27:42.907Z" itemprop="datePublished">2015-08-07</time>
+      <a href="/2015/08/07/JAVA-Semaphore/" class="article-date">
+  	<time datetime="2015-08-07T13:15:39.000Z" itemprop="datePublished">2015-08-07</time>
 </a>
     </div>
   
@@ -197,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      读书
+      JAVA Semaphore
     </h1>
   
 
@@ -205,7 +198,15 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Semaphore/">Semaphore</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/JAVA并发/">JAVA并发</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -213,13 +214,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <article class="leisure"><aside><img src=http://img4.douban.com/lpic/s6297466.jpg alt=轻量级Java EE企业应用实战></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/6002664/>轻量级Java EE企业应用实战</a></li><li>2015-07-10 17:30:21</li><li>作为SSH入门书籍还是可以的。</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img3.douban.com/lpic/s27243455.jpg alt=Java编程思想 （第4版）></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/2130190/>Java编程思想 （第4版）</a></li><li>2015-07-05 11:01:21</li><li>比core java 有深度，知识点比较全面，部分内容难懂晦涩</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img4.douban.com/lpic/s2686916.jpg alt=Head First 设计模式（中文版）></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/2243615/>Head First 设计模式（中文版）</a></li><li>2015-07-02 10:49:03</li><li>花了十天的时间读完了，每个模式都由一个妙趣横生的例子引出，适合初学者作为入门书籍</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img3.douban.com/lpic/s3479802.jpg alt=Effective java 中文版（第2版）></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/3360807/>Effective java 中文版（第2版）</a></li><li>2015-06-09 11:55:58</li><li>深入学习java必看！</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img4.douban.com/lpic/s1585569.jpg alt=玛格丽特的秘密></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/1463013/>玛格丽特的秘密</a></li><li>2015-05-09 18:30:20</li><li>没有评论</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img4.douban.com/lpic/s26039949.jpg alt=挺住，意味着一切></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/23044177/>挺住，意味着一切</a></li><li>2015-05-08 19:34:47</li><li>我是偶然在博客上看到星姐的一篇文章，然后才对作者感兴趣，进而搜索到这本书，带着它上了去拉萨的火车！</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img4.douban.com/lpic/s7038106.jpg alt=剑指Offer></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/6966465/>剑指Offer</a></li><li>2015-05-07 17:52:44</li><li>要找工作了，看看还是很受启发的！</li></ul></section></article><hr><article class="leisure"><aside><img src=http://img3.douban.com/lpic/s7653652.jpg alt=考拉小巫的英语学习日记></aside><section class="intro"><ul><li><a class href=http://book.douban.com/subject/7059662/>考拉小巫的英语学习日记</a></li><li>2015-05-07 17:45:07</li><li>没有评论</li></ul></section></article><hr><style>.leisure{width:100%;min-height:130px;margin:20px 0;display:block;clear:both}.leisure img{width:128px;height:182px;float:left;background-color:white;padding:5px;border-radius:5px;border:1px solid #dedede;margin:-5px 10px 5px 0}.leisure .intro{margin:5px 10px 5px 0;width:100%}.leisure .intro ul{list-style:none;margin-left:0;min-height:188px}.leisure .intro ul li{line-height:20px;margin: 10px 0;}.leisure .intro ul li:first-child{font-size:20px;padding-bottom:5px;margin-bottom:10px;border-bottom:1px #eee solid}.leisure .intro ul li:before{content:none}</style>
+        <p>Semaphore可以控同时访问资源的线程个数，通过 acquire() 获取一个访问资源许可，如果没有就等待，而 release() 释放一个资源许可</p>
+<a id="more"></a>
+<p>模拟酒店入住，退房</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Semaphore;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaSemaphore</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> Semaphore room=<span class="keyword">new</span> Semaphore(<span class="number">3</span>);</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">	    JavaSemaphore javasemaphore=<span class="keyword">new</span> JavaSemaphore();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">7</span>;i++)</span><br><span class="line">			javasemaphore.new costomer(room, i).start();</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">costomer</span> <span class="keyword">extends</span> <span class="title">Thread</span></span><br><span class="line">	</span>&#123;</span><br><span class="line">		<span class="keyword">private</span> Semaphore s;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">costomer</span><span class="params">(Semaphore s,<span class="keyword">int</span> id)</span></span><br><span class="line">		</span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.s=s;</span><br><span class="line">			<span class="keyword">this</span>.id=id;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span><br><span class="line">		</span>&#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				s.acquire();</span><br><span class="line">				System.out.println(<span class="string">"costomer "</span>+id +<span class="string">"入住"</span>);</span><br><span class="line">				Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">				s.release();</span><br><span class="line">				System.out.println(<span class="string">"costomer "</span>+id +<span class="string">"退房"</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<blockquote>
+<p>costomer 0入住<br>costomer 2入住<br>costomer 4入住<br>costomer 6入住<br>costomer 0退房<br>costomer 1入住<br>costomer 2退房<br>costomer 3入住<br>costomer 4退房<br>costomer 6退房<br>costomer 5入住<br>costomer 1退房<br>costomer 3退房<br>costomer 5退房</p>
+</blockquote>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/07/JAVA序列化与反序列化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA序列化与反序列化</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -243,7 +262,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="douban" data-title="读书" data-url="http://yoursite.com/douban/index.html"></div>
+	<div class="ds-thread" data-thread-key="JAVA-Semaphore" data-title="JAVA Semaphore" data-url="http://yoursite.com/2015/08/07/JAVA-Semaphore/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
