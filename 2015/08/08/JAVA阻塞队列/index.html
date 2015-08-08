@@ -10,10 +10,7 @@
 ArrayBlockingQueue 基于数组实现，定义时需指定大小
 LinkedBlockingQueue 基于链表实现
 PriorityBlockingQueue 基于堆实现
-DelayQueue 延时阻塞队列
-
-用ArrayBlockingQueue实现生产者消费者模型
-12345678910111">
+DelayQueue 延时阻塞队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA阻塞队列">
 <meta property="og:url" content="http://yoursite.com/2015/08/08/JAVA阻塞队列/index.html">
@@ -23,10 +20,7 @@ DelayQueue 延时阻塞队列
 ArrayBlockingQueue 基于数组实现，定义时需指定大小
 LinkedBlockingQueue 基于链表实现
 PriorityBlockingQueue 基于堆实现
-DelayQueue 延时阻塞队列
-
-用ArrayBlockingQueue实现生产者消费者模型
-12345678910111">
+DelayQueue 延时阻塞队列">
 <meta property="og:updated_time" content="2015-08-08T07:07:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA阻塞队列">
@@ -35,10 +29,7 @@ DelayQueue 延时阻塞队列
 ArrayBlockingQueue 基于数组实现，定义时需指定大小
 LinkedBlockingQueue 基于链表实现
 PriorityBlockingQueue 基于堆实现
-DelayQueue 延时阻塞队列
-
-用ArrayBlockingQueue实现生产者消费者模型
-12345678910111">
+DelayQueue 延时阻塞队列">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -243,9 +234,11 @@ DelayQueue 延时阻塞队列
 <li>ArrayBlockingQueue 基于数组实现，定义时需指定大小</li>
 <li>LinkedBlockingQueue 基于链表实现</li>
 <li>PriorityBlockingQueue 基于堆实现</li>
-<li>DelayQueue 延时阻塞队列</li>
-</ul>
+<li><p>DelayQueue 延时阻塞队列</p>
+<a id="more"></a>
 <p>用ArrayBlockingQueue实现生产者消费者模型</p>
+</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.ArrayBlockingQueue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaBlockQueue</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> ArrayBlockingQueue&lt;Integer&gt; arrayBlockingQueue = <span class="keyword">new</span> ArrayBlockingQueue&lt;Integer&gt;(<span class="number">5</span>);</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JavaBlockQueue javaBlockQueue = <span class="keyword">new</span> JavaBlockQueue();</span><br><span class="line">		<span class="keyword">new</span> Thread(javaBlockQueue.new Consumer()).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(javaBlockQueue.new Producer()).start();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">					System.out.println(<span class="string">"取出"</span> + arrayBlockingQueue.take());</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Producer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">					arrayBlockingQueue.put(++count);</span><br><span class="line">				    System.out.println(<span class="string">"存入 "</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>测试结果<br>存入 25449<br>存入 25450<br>存入 25451<br>存入 25452<br>存入 25453<br>取出25449<br>取出25450<br>取出25451<br>取出25452<br>取出25453</p>
