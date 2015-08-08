@@ -3,24 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>java线程同步 | peppe</title>
+  <title>JAVA阻塞队列 | peppe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同步的两种方式
-synchronized关键字同步
-可重入锁ReentrantLock同步">
+  <meta name="description" content="阻塞队列，顾名思义，当队列为空取元素或者队列满了放元素时对线程进行阻塞阻塞队列有以下几种：
+
+ArrayBlockingQueue 基于数组实现，定义时需指定大小
+LinkedBlockingQueue 基于链表实现
+PriorityBlockingQueue 基于堆实现
+DelayQueue 延时阻塞队列
+
+用ArrayBlockingQueue实现生产者消费者模型
+12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java线程同步">
-<meta property="og:url" content="http://yoursite.com/2015/07/18/java线程同步/index.html">
+<meta property="og:title" content="JAVA阻塞队列">
+<meta property="og:url" content="http://yoursite.com/2015/08/08/JAVA阻塞队列/index.html">
 <meta property="og:site_name" content="peppe">
-<meta property="og:description" content="同步的两种方式
-synchronized关键字同步
-可重入锁ReentrantLock同步">
-<meta property="og:updated_time" content="2015-07-18T11:45:34.000Z">
+<meta property="og:description" content="阻塞队列，顾名思义，当队列为空取元素或者队列满了放元素时对线程进行阻塞阻塞队列有以下几种：
+
+ArrayBlockingQueue 基于数组实现，定义时需指定大小
+LinkedBlockingQueue 基于链表实现
+PriorityBlockingQueue 基于堆实现
+DelayQueue 延时阻塞队列
+
+用ArrayBlockingQueue实现生产者消费者模型
+12345678910111">
+<meta property="og:updated_time" content="2015-08-08T07:07:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java线程同步">
-<meta name="twitter:description" content="同步的两种方式
-synchronized关键字同步
-可重入锁ReentrantLock同步">
+<meta name="twitter:title" content="JAVA阻塞队列">
+<meta name="twitter:description" content="阻塞队列，顾名思义，当队列为空取元素或者队列满了放元素时对线程进行阻塞阻塞队列有以下几种：
+
+ArrayBlockingQueue 基于数组实现，定义时需指定大小
+LinkedBlockingQueue 基于链表实现
+PriorityBlockingQueue 基于堆实现
+DelayQueue 延时阻塞队列
+
+用ArrayBlockingQueue实现生产者消费者模型
+12345678910111">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -179,11 +197,11 @@ synchronized关键字同步
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-java线程同步" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JAVA阻塞队列" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/18/java线程同步/" class="article-date">
-  	<time datetime="2015-07-18T11:45:34.000Z" itemprop="datePublished">2015-07-18</time>
+      <a href="/2015/08/08/JAVA阻塞队列/" class="article-date">
+  	<time datetime="2015-08-08T07:07:35.000Z" itemprop="datePublished">2015-08-08</time>
 </a>
     </div>
   
@@ -196,7 +214,7 @@ synchronized关键字同步
         
   
     <h1 class="article-title" itemprop="name">
-      java线程同步
+      JAVA阻塞队列
     </h1>
   
 
@@ -205,7 +223,7 @@ synchronized关键字同步
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程同步/">线程同步</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BlockingQueue/">BlockingQueue</a></li></ul>
 	</div>
 
         
@@ -220,20 +238,18 @@ synchronized关键字同步
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="同步的两种方式">同步的两种方式</h3><ol>
-<li>synchronized关键字同步</li>
-<li>可重入锁ReentrantLock同步<a id="more"></a>
-下面的例子分别使用两种方式实现同步</li>
-</ol>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JavaSynchronize</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		synchronized (<span class="keyword">this</span>) &#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					increment();</span><br><span class="line">					System.<span class="keyword">out</span>.println(<span class="string">"count="</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.locks.Lock;</span><br><span class="line">import java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JavaLock</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> Lock <span class="keyword">lock</span> = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">lock</span>.<span class="keyword">lock</span>();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">lock</span>.unlock();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">					increment();</span><br><span class="line">					System.<span class="keyword">out</span>.println(<span class="string">"count="</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;).start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="两种方式的差异">两种方式的差异</h3><ul>
-<li>synchronized是java关键字，是java语言的内置实现，Lock是接口</li>
-<li>synchronized发生异常时，自动释放锁，Lock必须主动通过unlock()释放锁，为防止死锁，需在finally中释放锁</li>
-<li>Lock可以响应中断，synchronized则不行</li>
-<li>如果竞争激烈，Lock性能优于synchronized</li>
+        <p>阻塞队列，顾名思义，当队列为空取元素或者队列满了放元素时对线程进行阻塞<br>阻塞队列有以下几种：</p>
+<ul>
+<li>ArrayBlockingQueue 基于数组实现，定义时需指定大小</li>
+<li>LinkedBlockingQueue 基于链表实现</li>
+<li>PriorityBlockingQueue 基于堆实现</li>
+<li>DelayQueue 延时阻塞队列</li>
 </ul>
-<p>参考资料：<br><a href="http://www.cnblogs.com/dolphin0520/p/3923167.html" target="_blank" rel="external">http://www.cnblogs.com/dolphin0520/p/3923167.html</a></p>
+<p>用ArrayBlockingQueue实现生产者消费者模型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.ArrayBlockingQueue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaBlockQueue</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> ArrayBlockingQueue&lt;Integer&gt; arrayBlockingQueue = <span class="keyword">new</span> ArrayBlockingQueue&lt;Integer&gt;(<span class="number">5</span>);</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JavaBlockQueue javaBlockQueue = <span class="keyword">new</span> JavaBlockQueue();</span><br><span class="line">		<span class="keyword">new</span> Thread(javaBlockQueue.new Consumer()).start();</span><br><span class="line">		<span class="keyword">new</span> Thread(javaBlockQueue.new Producer()).start();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">					System.out.println(<span class="string">"取出"</span> + arrayBlockingQueue.take());</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Producer</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">					arrayBlockingQueue.put(++count);</span><br><span class="line">				    System.out.println(<span class="string">"存入 "</span> + count);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试结果<br>存入 25449<br>存入 25450<br>存入 25451<br>存入 25452<br>存入 25453<br>取出25449<br>取出25450<br>取出25451<br>取出25452<br>取出25453</p>
+</blockquote>
 
       
     </div>
@@ -243,18 +259,9 @@ synchronized关键字同步
     
 <nav id="article-nav">
   
-    <a href="/2015/08/07/JAVA-Fork-Join-框架/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JAVA Fork/Join 框架
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/18/java线程协作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java线程协作</div>
+    <a href="/2015/08/08/JAVA同步器CountDownLatch-CyclicBarrier/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA同步器CountDownLatch CyclicBarrier</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -283,7 +290,7 @@ synchronized关键字同步
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java线程同步" data-title="java线程同步" data-url="http://yoursite.com/2015/07/18/java线程同步/"></div>
+	<div class="ds-thread" data-thread-key="JAVA阻塞队列" data-title="JAVA阻塞队列" data-url="http://yoursite.com/2015/08/08/JAVA阻塞队列/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
