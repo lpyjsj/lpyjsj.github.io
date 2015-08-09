@@ -227,12 +227,12 @@
 <ul>
 <li>代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）</li>
 <li>实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib代理依赖CGLib.jar和asm.jar)</li>
-<li>性能：CGGlib创建的代理对象要比JDK的性能高很多，但是创建时所花费的时间却比JDK动态代理要多，CGLib适合单例等生命周期比较长的对象。<a id="more"></a>
+<li>性能：CGGlib创建的代理对象要比JDK的性能高很多，但是创建时所花费的时间却比JDK动态代理要多，CGLib适合单例等生命周期比较长的对象。</li>
+</ul>
+<a id="more"></a>
 <h2 id="例子">例子</h2><blockquote>
 <p>接口和被代理类</p>
 </blockquote>
-</li>
-</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">subjectInterface</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTask</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> <span class="keyword">implements</span> <span class="title">subjectInterface</span> </span>&#123;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag"><span class="keyword">TODO</span></span> Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"执行任务"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>JDK代理</p>
