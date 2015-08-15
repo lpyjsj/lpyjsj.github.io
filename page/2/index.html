@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
+						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,71 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-java动态代理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/17/java动态代理/" class="article-date">
+  	<time datetime="2015-07-17T11:31:40.000Z" itemprop="datePublished">2015-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/17/java动态代理/">JAVA动态代理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java有两种动态代理，JDK动态代理和CGLib动态代理，二者的区别如下</p>
+<ul>
+<li>代理范围：JDK代理只能代理实现了接口的类，CGLib可以代理没有实现接口的类（spring AOP 中如果类实现了接口，默认使用JDK代理）</li>
+<li>实现原理：CGLib使用底层的字节码技术，为被代理类生成子类，在子类中使用方法拦截技术拦截父类方法的调用，因为是继承，所以被代理类和方法最好不要声明为final（注意：CGlib代理依赖CGLib.jar和asm.jar)</li>
+<li>性能：CGGlib创建的代理对象要比JDK的性能高很多，但是创建时所花费的时间却比JDK动态代理要多，CGLib适合单例等生命周期比较长的对象。</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CGLib/">CGLib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDK动态代理/">JDK动态代理</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/JAVA基础/">JAVA基础</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/17/java动态代理/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-JAVA多线程" class="article article-type-post" itemscope itemprop="blogPost">
   
