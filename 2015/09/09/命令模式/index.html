@@ -5,16 +5,35 @@
   
   <title>命令模式 | peppe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦">
+  <meta name="description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦命令模式包含如下角色：
+
+Command: 抽象命令类
+ConcreteCommand: 具体命令类
+Invoker: 调用者
+Receiver: 接收者
+Client:客户类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="命令模式">
 <meta property="og:url" content="http://yoursite.com/2015/09/09/命令模式/index.html">
 <meta property="og:site_name" content="peppe">
-<meta property="og:description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦">
+<meta property="og:description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦命令模式包含如下角色：
+
+Command: 抽象命令类
+ConcreteCommand: 具体命令类
+Invoker: 调用者
+Receiver: 接收者
+Client:客户类">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/8ebfe3c1jw1evwedq2zk7j20hl06gq3c.jpg">
 <meta property="og:updated_time" content="2015-09-09T10:37:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="命令模式">
-<meta name="twitter:description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦">
+<meta name="twitter:description" content="概念将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦命令模式包含如下角色：
+
+Command: 抽象命令类
+ConcreteCommand: 具体命令类
+Invoker: 调用者
+Receiver: 接收者
+Client:客户类">
   
     <link rel="alternative" href="/atom.xml" title="peppe" type="application/atom+xml">
   
@@ -109,7 +128,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/命令模式/" style="font-size: 10px;">命令模式</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
+						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/命令模式/" style="font-size: 10px;">命令模式</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a> <a href="/tags/适配器模式/" style="font-size: 10px;">适配器模式</a>
 					</div>
 				</section>
 				
@@ -214,7 +233,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="概念">概念</h5><p>将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦<br><a id="more"></a></p>
+        <h5 id="概念">概念</h5><p>将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦<br>命令模式包含如下角色：</p>
+<ul>
+<li>Command: 抽象命令类</li>
+<li>ConcreteCommand: 具体命令类</li>
+<li>Invoker: 调用者</li>
+<li>Receiver: 接收者</li>
+<li>Client:客户类</li>
+</ul>
+<p><img src="http://ww4.sinaimg.cn/mw690/8ebfe3c1jw1evwedq2zk7j20hl06gq3c.jpg" alt="image"></p>
+<a id="more"></a>
 <h5 id="实例">实例</h5><p>模拟通过开关控制器开关电灯</p>
 <p>开关对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOnCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Light light;</span><br><span class="line"></span><br><span class="line">	LightOnCommand(Light light) &#123;</span><br><span class="line">		<span class="keyword">this</span>.light = light;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		light.on();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOffCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Light light;</span><br><span class="line"></span><br><span class="line">	LightOffCommand(Light light) &#123;</span><br><span class="line">		<span class="keyword">this</span>.light = light;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		light.off();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>电灯 也即动作的具体执行对象<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Light</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"开灯"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"关灯"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -230,6 +258,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/09/11/适配器模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          适配器模式
+        
+      </div>
+    </a>
   
   
     <a href="/2015/08/22/单例模式/" id="article-nav-older" class="article-nav-link-wrap">

@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/命令模式/" style="font-size: 10px;">命令模式</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a>
+						<a href="/tags/BlockingQueue/" style="font-size: 10px;">BlockingQueue</a> <a href="/tags/CGLib/" style="font-size: 10px;">CGLib</a> <a href="/tags/CountDownLatch/" style="font-size: 10px;">CountDownLatch</a> <a href="/tags/CyclicBarrier/" style="font-size: 10px;">CyclicBarrier</a> <a href="/tags/Fork-Join/" style="font-size: 10px;">Fork/Join</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JAVA反射/" style="font-size: 10px;">JAVA反射</a> <a href="/tags/JDK动态代理/" style="font-size: 10px;">JDK动态代理</a> <a href="/tags/Java-Thread/" style="font-size: 10px;">Java Thread</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/Semaphore/" style="font-size: 10px;">Semaphore</a> <a href="/tags/ThreadLocal/" style="font-size: 10px;">ThreadLocal</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/命令模式/" style="font-size: 10px;">命令模式</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程协作/" style="font-size: 10px;">线程协作</a> <a href="/tags/线程同步/" style="font-size: 10px;">线程同步</a> <a href="/tags/装饰者模式/" style="font-size: 10px;">装饰者模式</a> <a href="/tags/观察者模式/" style="font-size: 10px;">观察者模式</a> <a href="/tags/适配器模式/" style="font-size: 10px;">适配器模式</a>
 					</div>
 				</section>
 				
@@ -174,6 +174,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/11/适配器模式/" class="article-date">
+  	<time datetime="2015-09-11T11:58:31.000Z" itemprop="datePublished">2015-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/11/适配器模式/">适配器模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="概念">概念</h5><p>将一个类的接口转换成客户需要的另一个接口。<br>主要角色：</p>
+<ul>
+<li>Target：期待得到的接口</li>
+<li>Adapee：需要适配的接口</li>
+<li>Adapter：把源接口转换成目标接口</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/mw690/8ebfe3c1jw1evxrb3a1irj20hh0by75q.jpg" alt="图片来自网络"><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/适配器模式/">适配器模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/11/适配器模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
     <article id="post-命令模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -200,7 +266,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="概念">概念</h5><p>将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦<br>
+        <h5 id="概念">概念</h5><p>将请求封装成对象，将发出命令的责任和执行命令的责任分开，将发出请求的对象和执行请求的对象解耦<br>命令模式包含如下角色：</p>
+<ul>
+<li>Command: 抽象命令类</li>
+<li>ConcreteCommand: 具体命令类</li>
+<li>Invoker: 调用者</li>
+<li>Receiver: 接收者</li>
+<li>Client:客户类</li>
+</ul>
+<p><img src="http://ww4.sinaimg.cn/mw690/8ebfe3c1jw1evwedq2zk7j20hl06gq3c.jpg" alt="image"></p>
       
     </div>
     
@@ -732,70 +806,9 @@
 
 
   
-    <article id="post-JAVA同步器CountDownLatch-CyclicBarrier" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/08/JAVA同步器CountDownLatch-CyclicBarrier/" class="article-date">
-  	<time datetime="2015-08-08T02:41:16.000Z" itemprop="datePublished">2015-08-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/08/JAVA同步器CountDownLatch-CyclicBarrier/">JAVA同步器CountDownLatch CyclicBarrier</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="CountDownLatch">CountDownLatch</h4><p>可以实现类似计数器的功能，一般用于某个线程等待若干个其他线程执行完任务之后，它才执行</p>
-<h4 id="CyclicBarrier">CyclicBarrier</h4><p>一组线程互相等待至某个状态，然后这一组线程再同时执行<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CountDownLatch/">CountDownLatch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CyclicBarrier/">CyclicBarrier</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/JAVA并发/">JAVA并发</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/08/JAVA同步器CountDownLatch-CyclicBarrier/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
